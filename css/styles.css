@@ -488,7 +488,7 @@ Projects
   max-width: 30rem;
   margin: 0 auto;
 }
-/* 图片上浮着的文字absolute，还要用::after，因此需要把图片的container设为relative */
+/* 图片上浮着的文字absolute，还要用::after，因此需要把图片（也是文字）的container设为relative */
 .project {
   position: relative;
   background: var(--clr-primary-5);
@@ -587,7 +587,60 @@ Projects
 Connect
 ===============
 */
-
+.connect {
+  min-height: 40vh;
+  position: relative;
+  padding: 10rem 0 5rem 0;
+  margin: 5rem 0;
+}
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.connect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-white);
+  opacity: 0.7;
+  z-index: -1;
+}
+.connect {
+  display: grid;
+  place-items: center;
+}
+.video-banner .section-title {
+  margin-bottom: 2rem;
+}
+/* 给p设置了宽度，video-banner就不会横跨页面了 */
+.video-text {
+  max-width: 30rem;
+}
+.video-banner {
+  background: var(--clr-primary-10);
+  padding: 3rem 5rem 12rem;
+  text-align: center;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+}
+.connect {
+  clip-path: polygon(50% 0%, 100% 10%, 100% 90%, 50% 100%, 0 90%, 0 10%);
+}
 /*
 =============== 
 Skills
